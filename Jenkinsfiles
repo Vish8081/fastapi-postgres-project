@@ -45,7 +45,9 @@ pipeline {
 
     post {
         always {
-            sh 'DB_PASSWORD=$DB_PASSWORD docker-compose down || true'
+            script {
+                sh 'DB_PASSWORD=$DB_PASSWORD docker-compose down || true'
+            }
         }
     }
 }
