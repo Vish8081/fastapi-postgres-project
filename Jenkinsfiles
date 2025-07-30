@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
-        DB_PASSWORD = 'admin' // Use 'admin' as the password
-        DOCKERHUB_USER = 'your-dockerhub-username' // <-- Set your Docker Hub username here
+        DOCKERHUB_USER = 'zenowick'
+        DOCKERHUB_PASS = 'vishu@9331'
+        DB_PASSWORD = 'admin'
         IMAGE_NAME = "${DOCKERHUB_USER}/fastapi-postgres"
         IMAGE_TAG = "${env.BUILD_ID}"
     }
@@ -26,12 +26,9 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
-                        dockerImage.push()
-                        dockerImage.push('latest')
-                    }
-                }
+                sh "echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin"
+                sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker push ${IMAGE_NAME}:latest"
             }
         }
 
@@ -45,9 +42,7 @@ pipeline {
 
     post {
         always {
-            script {
-                sh 'DB_PASSWORD=$DB_PASSWORD docker-compose down || true'
-            }
+            sh 'DB_PASSWORD=$DB_PASSWORD docker-compose down || true'
         }
     }
 }
