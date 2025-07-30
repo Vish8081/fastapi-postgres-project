@@ -1,0 +1,14 @@
+setup.py
+app/ main.py
+app/__init__.py
+app/crud.py
+app/database.py
+app/models.py
+app/schemas.py
+app/routers/__init__.py
+app/routers/items.py
+fastapi_postgres_project.egg-info/PKG-INFO
+fastapi_postgres_project.egg-info/SOURCES.txt
+fastapi_postgres_project.egg-info/dependency_links.txt
+fastapi_postgres_project.egg-info/requires.txt
+fastapi_postgres_project.egg-info/top_level.txt

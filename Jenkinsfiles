@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+        DB_PASSWORD = credentials('db-password')  // Store password securely
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker-compose build --no-cache'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh '''
+                docker-compose -f docker-compose.test.yml run \
+                  -e DATABASE_URL=postgresql://postgres:${DB_PASSWORD}@db:5432/postgres_test \
+                  web pytest
+                '''
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+    
+    post {
+        always {
+            sh 'docker-compose down'
+        }
+    }
+}

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin  # Updated password
+      POSTGRES_DB: postgres_test
+    ports:
+      - "5433:5432"
+
+  web:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://postgres:admin@db:5432/postgres_test  # Updated
