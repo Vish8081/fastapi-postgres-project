@@ -3,36 +3,44 @@ pipeline {
     
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
-        DB_PASSWORD = credentials('db-password')  // Store password securely
+        DB_PASSWORD = credentials('db-password')
     }
     
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                sh 'docker-compose build --no-cache'
+                git branch: 'main', url: 'https://github.com/Vish8081/fastapi-postgres-project.git'
             }
         }
         
-        stage('Test') {
+        stage('Build Docker Image') {
             steps {
-                sh '''
-                docker-compose -f docker-compose.test.yml run \
-                  -e DATABASE_URL=postgresql://postgres:${DB_PASSWORD}@db:5432/postgres_test \
-                  web pytest
-                '''
+                script {
+                    dockerImage = docker.build("your-dockerhub-username/fastapi-postgres:${env.BUILD_ID}")
+                }
+            }
+        }
+        
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
+                        dockerImage.push()
+                    }
+                }
             }
         }
         
         stage('Deploy') {
             steps {
-                sh 'docker-compose up -d'
+                bat 'docker-compose down && docker-compose up -d'
             }
         }
     }
     
     post {
         always {
-            sh 'docker-compose down'
+            bat 'docker-compose down'
         }
     }
 }
