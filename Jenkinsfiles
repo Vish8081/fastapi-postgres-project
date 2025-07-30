@@ -28,10 +28,11 @@ pipeline {
             steps {
                 sh "echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin"
                 sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest" // <-- Add this line
                 sh "docker push ${IMAGE_NAME}:latest"
             }
         }
-
+        
         stage('Deploy') {
             steps {
                 sh 'DB_PASSWORD=$DB_PASSWORD docker-compose down || true'
