@@ -103,7 +103,8 @@
               "RelativeToolTip": "app\\routers\\__init__.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:53:01.899Z"
+              "WhenOpened": "2025-07-29T09:53:01.899Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -115,7 +116,8 @@
               "RelativeToolTip": "app\\crud.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:52:41.723Z"
+              "WhenOpened": "2025-07-29T09:52:41.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -127,7 +129,8 @@
               "RelativeToolTip": "app\\schemas.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:52:32.802Z"
+              "WhenOpened": "2025-07-29T09:52:32.802Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -139,7 +142,8 @@
               "RelativeToolTip": "app\\models.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:52:23.51Z"
+              "WhenOpened": "2025-07-29T09:52:23.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -151,7 +155,8 @@
               "RelativeToolTip": "app\\database.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:52:11.092Z"
+              "WhenOpened": "2025-07-29T09:52:11.092Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -163,7 +168,8 @@
               "RelativeToolTip": "app\\ main.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:51:56.284Z"
+              "WhenOpened": "2025-07-29T09:51:56.284Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -175,7 +181,8 @@
               "RelativeToolTip": "app\\__init__.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-07-29T09:51:25.547Z"
+              "WhenOpened": "2025-07-29T09:51:25.547Z",
+              "EditorCaption": ""
             }
           ]
         },
